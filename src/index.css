@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* PlantGuard Design System - Agricultural Theme */
+
+@layer base {
+  :root {
+    /* Core Brand Colors - Forest & Nature */
+    --background: 45 30% 98%;
+    --foreground: 150 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 150 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 25% 15%;
+
+    /* Primary - Deep Forest Green */
+    --primary: 152 45% 28%;
+    --primary-foreground: 45 30% 98%;
+
+    /* Secondary - Warm Amber/Gold */
+    --secondary: 42 85% 55%;
+    --secondary-foreground: 150 25% 15%;
+
+    /* Accent - Fresh Lime */
+    --accent: 95 60% 50%;
+    --accent-foreground: 150 25% 15%;
+
+    /* Muted - Sage */
+    --muted: 150 15% 92%;
+    --muted-foreground: 150 15% 45%;
+
+    /* Destructive - Warning Red */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders & Inputs */
+    --border: 150 15% 85%;
+    --input: 150 15% 85%;
+    --ring: 152 45% 28%;
+
+    --radius: 0.75rem;
+
+    /* Severity Colors */
+    --severity-healthy: 142 76% 36%;
+    --severity-mild: 48 96% 53%;
+    --severity-moderate: 25 95% 53%;
+    --severity-severe: 0 72% 51%;
+
+    /* Confidence Colors */
+    --confidence-high: 152 45% 28%;
+    --confidence-medium: 42 85% 55%;
+    --confidence-low: 150 15% 45%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(152 45% 28%) 0%, hsl(152 35% 38%) 50%, hsl(95 45% 40%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(45 30% 98%) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-glow: 0 0 40px -10px hsl(152 45% 28% / 0.3);
+
+    /* Sidebar */
+    --sidebar-background: 150 15% 97%;
+    --sidebar-foreground: 150 25% 25%;
+    --sidebar-primary: 152 45% 28%;
+    --sidebar-primary-foreground: 45 30% 98%;
+    --sidebar-accent: 150 15% 92%;
+    --sidebar-accent-foreground: 150 25% 20%;
+    --sidebar-border: 150 15% 88%;
+    --sidebar-ring: 152 45% 28%;
+  }
+
+  .dark {
+    --background: 150 25% 8%;
+    --foreground: 45 25% 95%;
+
+    --card: 150 20% 12%;
+    --card-foreground: 45 25% 95%;
+
+    --popover: 150 20% 12%;
+    --popover-foreground: 45 25% 95%;
+
+    --primary: 152 50% 45%;
+    --primary-foreground: 150 25% 8%;
+
+    --secondary: 42 80% 50%;
+    --secondary-foreground: 150 25% 8%;
+
+    --accent: 95 55% 55%;
+    --accent-foreground: 150 25% 8%;
+
+    --muted: 150 15% 20%;
+    --muted-foreground: 150 10% 60%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 15% 20%;
+    --input: 150 15% 20%;
+    --ring: 152 50% 45%;
+
+    --sidebar-background: 150 20% 10%;
+    --sidebar-foreground: 45 25% 90%;
+    --sidebar-primary: 152 50% 45%;
+    --sidebar-primary-foreground: 150 25% 8%;
+    --sidebar-accent: 150 15% 18%;
+    --sidebar-accent-foreground: 45 25% 90%;
+    --sidebar-border: 150 15% 18%;
+    --sidebar-ring: 152 50% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  /* Glass morphism card */
+  .glass-card {
+    @apply backdrop-blur-md bg-white/80 dark:bg-card/80 border border-white/20 shadow-lg;
+  }
+
+  /* Severity badges */
+  .severity-healthy {
+    @apply bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400;
+  }
+  .severity-mild {
+    @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400;
+  }
+  .severity-moderate {
+    @apply bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400;
+  }
+  .severity-severe {
+    @apply bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400;
+  }
+
+  /* Confidence bar colors */
+  .confidence-high {
+    @apply bg-primary;
+  }
+  .confidence-medium {
+    @apply bg-secondary;
+  }
+  .confidence-low {
+    @apply bg-muted-foreground;
+  }
+}
+
+@layer utilities {
+  /* Animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px -5px hsl(152 45% 28% / 0.4); }
+    50% { box-shadow: 0 0 40px -5px hsl(152 45% 28% / 0.6); }
+  }
+
+  @keyframes scan-line {
+    0% { transform: translateY(-100%); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(100%); opacity: 0; }
+  }
+
+  @keyframes grow {
+    0% { transform: scale(0.95); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  @keyframes leaf-sway {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-scan-line {
+    animation: scan-line 2s ease-in-out infinite;
+  }
+
+  .animate-grow {
+    animation: grow 0.5s ease-out;
+  }
+
+  .animate-leaf-sway {
+    animation: leaf-sway 3s ease-in-out infinite;
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-hero);
+  }
+
+  /* Hero gradient background */
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+}
